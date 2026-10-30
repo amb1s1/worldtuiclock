@@ -1,0 +1,11 @@
+{
+  "name": "worldclock-terminal-launcher",
+  "private": true,
+  "type": "module",
+  "engines": { "node": ">=18" },
+  "dependencies": {
+    "@konaito/terminal-browser": "0.1.0",
+    "@puppeteer/browsers": "2.13.2",
+    "puppeteer": "24.43.1"
+  }
+}

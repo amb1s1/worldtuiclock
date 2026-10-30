@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#1b1726">
+  <title>World Clock</title>
+  <link rel="icon" href="data:,">
+  <link rel="preload" href="fonts/JetBrainsMono-Regular.ttf" as="font" type="font/ttf" crossorigin>
+  <link rel="preload" href="fonts/JetBrainsMono-Bold.ttf" as="font" type="font/ttf" crossorigin>
+  <link rel="stylesheet" href="style.css">
+  <script src="app.js" type="module"></script>
+</head>
+<body>
+  <div class="glass-surface" aria-hidden="true"></div>
+  <div id="weather-background" class="weather-background" aria-hidden="true" hidden></div>
+  <main class="clock" aria-label="World Clock">
+    <header><h1>WORLD CLOCK</h1><span class="local-time" id="local-time"></span></header>
+    <section class="hero" aria-label="Selected city">
+      <svg id="digits" viewBox="0 0 900 250" role="img" aria-label="Loading time"></svg>
+      <div class="hero-info">
+        <div class="weather" id="weather" role="group" aria-label="Selected city weather">
+          <div class="weather-icon" id="weather-icon" aria-hidden="true"></div>
+          <div class="weather-copy"><div class="weather-reading"><span id="weather-temperature">—</span><span id="weather-condition">Loading weather</span></div>
+            <a id="weather-source" href="https://open-meteo.com/" target="_blank" rel="noopener noreferrer">Open-Meteo</a>
+            <span id="weather-preview-note" hidden>Current weather · time preview</span>
+          </div>
+        </div>
+        <h2 id="selected-city">New York</h2>
+        <p id="selected-date"></p>
+        <p id="selected-zone"></p>
+      </div>
+    </section>
+    <div class="zone-list" role="listbox" aria-label="Time zones" tabindex="0">
+      <div class="selector" aria-hidden="true"></div>
+    </div>
+    <footer>
+      <div class="help" aria-label="Keyboard shortcuts">
+        <span><kbd>↑/k</kbd> <kbd>↓/j</kbd> move</span>
+        <button id="open-settings" aria-haspopup="dialog"><kbd>s</kbd> settings</button>
+        <button id="open-explore" aria-haspopup="dialog" aria-label="Explore" title="Explore · e"><kbd>✦</kbd></button>
+        <button id="quit"><kbd>q</kbd> quit</button>
+      </div>
+      <div class="clock-status"><button id="focus-status" aria-haspopup="dialog" hidden></button><button id="live-control" class="live" aria-label="Live clock"><i></i><span id="clock-status">live</span></button></div>
+    </footer>
+  </main>
+  <div id="reflection-veil" class="reflection-veil" aria-hidden="true" hidden></div>
+  <dialog id="settings" aria-labelledby="settings-title">
+    <div class="settings-heading"><h2 id="settings-title">SETTINGS</h2><button id="close-settings" aria-label="Close settings"><kbd>esc</kbd> ×</button></div>
+    <div class="settings-context"><span id="settings-context">Your clock, your way</span><span id="settings-count"></span></div>
+    <div id="settings-search" hidden><label for="city-search" class="sr-only">Search cities</label><input id="city-search" type="search" placeholder="Search city or time zone…" autocomplete="off" spellcheck="false"></div>
+    <div id="settings-menu" aria-label="Settings choices">
+      <div id="settings-selector" class="settings-selector" aria-hidden="true"></div>
+      <div id="settings-rows"></div>
+    </div>
+    <div class="settings-bottom">
+      <div class="settings-help"><span><kbd>↑/↓</kbd> move</span><span><kbd>←/→</kbd> change</span><span><kbd>enter</kbd> choose</span><span><kbd>esc</kbd> back</span></div>
+      <div id="intensity-help" class="settings-help" hidden><span><kbd>−/+</kbd> intensity ±10</span></div>
+      <span id="save-status" role="status">Changes save automatically</span>
+    </div>
+  </dialog>
+  <dialog id="explore" aria-labelledby="explore-title">
+    <div class="settings-heading"><h2 id="explore-title">AFTER HOURS</h2><button id="close-explore" aria-label="Close explore"><kbd>esc</kbd> ×</button></div>
+    <div class="settings-context"><span id="explore-caption">A few things to explore.</span></div>
+    <div id="explore-menu" class="explore-menu" aria-label="Explore choices"><div id="explore-selector" class="settings-selector" aria-hidden="true"></div></div>
+    <div class="settings-bottom"><div class="settings-help"><span><kbd>↑/↓</kbd> move</span><span><kbd>←/→</kbd> change</span><span><kbd>enter</kbd> choose</span><span><kbd>esc</kbd> back</span></div><p class="explore-note">These tools apply to this session.</p></div>
+  </dialog>
+  <span id="focus-announcement" class="sr-only" role="status" aria-live="polite"></span>
+  <div class="notice" id="notice" role="status" hidden></div>
+</body>
+</html>

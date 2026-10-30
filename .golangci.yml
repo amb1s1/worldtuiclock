@@ -1,0 +1,25 @@
+# Automated checks supporting https://github.com/uber-go/guide.
+# Naming, ownership, and API design still require review.
+version: "2"
+
+run:
+  timeout: 3m
+  modules-download-mode: readonly
+
+linters:
+  default: none
+  enable:
+    - errcheck
+    - govet
+    - revive
+    - staticcheck
+  settings:
+    errcheck:
+      check-type-assertions: true
+      check-blank: true
+  exclusions:
+    presets: []
+
+formatters:
+  enable:
+    - goimports
