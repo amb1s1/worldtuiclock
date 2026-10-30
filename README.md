@@ -2,7 +2,9 @@
 
 A world clock with an animated graphical interface for Ghostty and web browsers, plus a lightweight Go TUI. Compare cities, check the weather, and adjust the look from a keyboard-driven settings panel.
 
-![World Clock with large gradient digits, five city clocks, current weather, and day/night bars](docs/images/clock.jpg)
+<a href="docs/images/clock.jpg">
+  <img src="docs/images/clock.jpg" alt="World Clock with large gradient digits, five city clocks, current weather, and day/night bars" width="600">
+</a>
 
 *The graphical interface, captured in a browser. `make run` renders the same interface inside Ghostty without a browser toolbar. Times and weather in the screenshots are live readings from when they were captured.*
 
@@ -73,7 +75,9 @@ You can also click a city or a footer control.
 
 ### Settings
 
-![Settings panel with time format, temperature units, city management, animations, themes, and reflection controls](docs/images/settings.jpg)
+<a href="docs/images/settings.jpg">
+  <img src="docs/images/settings.jpg" alt="Settings panel with time format, temperature units, city management, animations, themes, and reflection controls" width="600">
+</a>
 
 Use `↑` / `↓` or `j` / `k` to move, `←` / `→` to adjust a value, and `Enter` or `Space` to choose. `Esc` goes back or closes the panel; `s` also closes it. In city search fields, type to filter and use the arrow keys to navigate.
 
